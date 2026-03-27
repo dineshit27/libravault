@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "libravault-x"
+  },
+  "targets": {
+    "libravault-x": {
+      "hosting": {
+        "libra-vaultx": [
+          "libra-vaultx"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
