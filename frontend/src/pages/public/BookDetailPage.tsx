@@ -110,7 +110,7 @@ export default function BookDetailPage() {
     };
     socket?.on('book_requested', onBookRequested);
     return () => {
-      socket.off('book_requested', onBookRequested);
+      socket?.off('book_requested', onBookRequested);
     };
   }, [id, queryClient]);
 
