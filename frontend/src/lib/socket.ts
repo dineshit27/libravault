@@ -1,11 +1,11 @@
 import { io, Socket } from 'socket.io-client';
 
-const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:4000';
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL;
 
 let socket: Socket | null = null;
 
-export function getSocket(): Socket {
-  if (!socket) {
+export function getSocket(): Socket | null {
+  if (!socket && SOCKET_URL) {
     socket = io(SOCKET_URL, {
       autoConnect: false,
       reconnection: true,
@@ -19,6 +19,7 @@ export function getSocket(): Socket {
 
 export function connectSocket(token?: string): void {
   const s = getSocket();
+  if (!s) return;
   if (token) {
     s.auth = { token };
   }
