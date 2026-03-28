@@ -126,7 +126,7 @@ export default function BooksPage() {
     const onBookRequested = () => {
       queryClient.invalidateQueries({ queryKey: ['public', 'books'] });
     };
-    socket.on('book_requested', onBookRequested);
+    socket?.on('book_requested', onBookRequested);
     return () => {
       socket.off('book_requested', onBookRequested);
     };
