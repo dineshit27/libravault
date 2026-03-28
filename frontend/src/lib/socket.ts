@@ -24,7 +24,7 @@ export function connectSocket(token?: string): void {
     s.auth = { token };
   }
   if (!s.connected) {
-    s.connect();
+    s?.connect();
   }
 }
 
