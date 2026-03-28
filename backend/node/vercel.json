@@ -13,27 +13,3 @@
     }
   ]
 }
-```
-
-**What changed:**
-- `node/src/index.ts` → `src/index.ts` (removed the redundant `node/` prefix)
-- `/api/(.*)` → `/(.*)` (catch ALL routes, not just `/api/` — your app handles its own routing internally)
-
----
-
-## After saving, do this:
-
-**1. Commit and push** the fixed `vercel.json`
-
-**2. In Vercel dashboard** confirm settings:
-
-| Setting | Value |
-|---|---|
-| Root Directory | `backend/node` |
-| Build Command | `npm run build` |
-| Install Command | `npm install` |
-
-**3. Redeploy**, then test these URLs:
-```
-https://your-vercel-url.vercel.app/health
-https://your-vercel-url.vercel.app/api/node/health
