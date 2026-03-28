@@ -1,10 +1,15 @@
 {
-  "name": "libra-vaultx-api",
   "version": 2,
   "builds": [
     {
-      "src": "src/index.ts",
+      "src": "node/src/index.ts",
       "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "node/src/index.ts"
     }
   ]
 }
